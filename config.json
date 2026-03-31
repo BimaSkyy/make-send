@@ -1,3 +1,7 @@
 {
-  "auto_update_github": true
+  "auto_update_github": true,
+  "timer_value": 15,
+  "timer_unit": "hours",
+  "github_repo": "BimaSkyy/make-send",
+  "github_branch": "main"
 }
