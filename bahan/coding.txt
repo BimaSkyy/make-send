@@ -1,0 +1,33 @@
+# Love Sky ✨ | Python Tutorial
+
+import requests
+import json
+
+def get_weather(city):
+    api_key = "your_api_key_here"
+    url = f"https://api.openweathermap.org/data/2.5/weather"
+    
+    params = {
+        "q": city,
+        "appid": api_key,
+        "units": "metric"
+    }
+    
+    response = requests.get(url, params=params)
+    data = response.json()
+    
+    if response.status_code == 200:
+        temp = data["main"]["temp"]
+        desc = data["weather"][0]["description"]
+        humidity = data["main"]["humidity"]
+        
+        print(f"🌤  Cuaca di {city}:")
+        print(f"    Suhu     : {temp}°C")
+        print(f"    Kondisi  : {desc}")
+        print(f"    Humidity : {humidity}%")
+    else:
+        print("❌ Kota tidak ditemukan!")
+
+# Jalankan
+get_weather("Jakarta")
+get_weather("Pekanbaru")
